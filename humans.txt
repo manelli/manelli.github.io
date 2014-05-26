@@ -1,0 +1,11 @@
+/* ME */
+Developer: Martin Manelli
+Email: manelli.ml@gmail.com
+Twitter: @martinmanelli
+Location: Buenos Aires, Argentina
+
+/* SITE */
+Last update: 2014/04/17
+Standards: HTML5, CSS3
+Components: Sinatra, Foundation, Haml
+Software: Vim, Git 

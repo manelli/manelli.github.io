@@ -1,33 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,800italic,400,700,800);
+@import url(http://fonts.googleapis.com/css?family=Lato:300);
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   background: #f5f6f7;
   color: #f5f6f7;
-  font-size: 20px;
-  line-height: 36px;
   text-align: center;
-  font-weight: 300; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after, q:before, q:after {
-  content: none; }
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0; }
-
-*, *:before, *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  border: none; }
+}
 
 a:link,
 a:visited,
@@ -56,7 +34,7 @@ a:active {
   margin-top: -195px; }
 
 #hero {
-  background: #1abc9c; }
+  background: #212121; }
 
 #hero i {
 	font-size: 60px;
@@ -65,17 +43,17 @@ a:active {
 }
 
 #hero .github:hover {
-	color: #ed6297;
+	color: #ee9755;
 }
 
 #hero .linkedin:hover {
-	color: #3b5998;
+	color: #ee55ac;
 }
 
 #hero .twitter:hover {
-	color: #2094CA;
+	color: #55acee;
 }
 
 #hero .mail:hover {
-	color: #f39c12;
+	color: #55ee97;
 }

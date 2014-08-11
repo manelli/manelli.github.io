@@ -3,16 +3,6 @@ jQuery(document).ready(function () {
     $(window).resize(function () {
         $("#hero").height($(window).height());
         $("#hero").css("min-height", "600px")
-    });
-    $("#work").height($(window).height());
-    $(window).resize(function () {
-        $("#work").minHeight($(window).height());
-        $(".showcase-info").css("min-height", "360px")
-    });
-    $("#networks").height($(window).height());
-    $(window).resize(function () {
-        $("#networks").height($(window).height());
-        $("#networks").css("min-height", "600px")
     })
 });
 jQuery(document).ready(function (e) {

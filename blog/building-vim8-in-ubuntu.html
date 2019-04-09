@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Martin Manelli">
+    <meta name="description" content="How to build your own Vim 8 in Ubuntu">
+    <meta name="theme-color" content="#EEEEEE">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC|Source+Code+Pro" rel="stylesheet">
+    <title>Building Vim 8 in Ubuntu</title>
+    <style type="text/css">
+      body {
+        background-color: #EEEEEE;
+        color: #444;
+        font-family: 'Noto Serif TC', serif;
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 0 auto;
+        width: 36em;
+        max-width: 100%;
+        padding: 0 10px;
+        overflow-wrap: break-word;
+      }
+      h1, h2, h3 {
+        line-height: 1.2
+      }
+      code {
+        display: block;
+        font-family: 'Source Code Pro', monospace;
+        font-size: 16px;
+        line-height: 1.2;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Building Vim 8 in Ubuntu</h1>
+<p>Many systems ship with a version of Vim that is outdated or that was compiled
+with some features disabled.</p>
+<p>I needed a Vim with the <a href="https://www.vim.org/vim-8.1-released.php">terminal feature</a> and the system clipboard enabled.</p>
+<p>Also I wanted Vim to have the minimum dependencies possible (that means, not
+installing languages support e.g: Ruby, Python, Perl, etc).</p>
+<p>Unfortunately the only way I found to compile Vim with <em>+clipboard</em> was to build it with X11 support.</p>
+<p>(Note: this was tested on Ubuntu 16.04.6)</p>
+<pre><code class="language-bash"># Remove Vim if you have it already
+sudo apt remove vim vim-runtime gvim
+
+# Update
+sudo apt update
+
+# Install X11 libraries
+sudo apt install libx11-dev libxpm-dev libxt-dev
+
+VIM_VERSION=8.1.1137
+
+# Download Vim release and untar it
+wget -qO- https://github.com/vim/vim/archive/v$VIM_VERSION.tar.gz | tar -xz
+
+cd vim-$VIM_VERSION
+./configure --with-features=huge --enable-multibyte --with-x
+
+# Compile
+make
+
+# Install
+sudo make install
+
+# Set Vim as your default editor with update-alternatives
+sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/vim 1
+sudo update-alternatives --set editor /usr/local/bin/vim
+sudo update-alternatives --install /usr/bin/vi vi /usr/local/bin/vim 1
+sudo update-alternatives --set vi /usr/local/bin/vim
+</code></pre>
+<p>And that's it!</p>
+
+  </body>
+  <footer>
+    <p>&odot; <time>2019-04-09</time></p>
+  </footer>
+</html>
